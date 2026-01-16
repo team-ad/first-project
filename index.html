@@ -1,9 +1,598 @@
-<DOCTYPE html>
-  <html>
-    <head>
-      <title></title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wanderlust Travels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    html, body {
+      overflow-x: hidden;
+    }
+    html {
+  scroll-behavior: smooth;
+}
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #080054;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      width:95%;
+      background: white;
+      position: fixed;
+    }
+
+    .navbar nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .navbar .btn-nv {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      display: none;
+    }
+    .btn-orange {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .hero {
+      background: url("https://picsum.photos/1200/500?mountain") center/cover;
+      height: 630px;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .hero-content {
+      margin-left: 50px;
+      max-width: 100%;
+    }
+
+    .search-box select,
+    .search-box button {
+      padding: 10px;
+      margin: 5px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px;
+      background: white;
+    }
+    @keyframes fadeup {
+      from {
+        opacity: 0;
+        transform:translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform:translateX(0px);
+      }
+    }
+    
+    .ftres {
+      display: flex;
+      gap:30px;
+    }
+
+    .destinations {
+      padding: 40px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 9px;
+    }
+
+    .tours {
+      padding: 40px;
+      background: white;
+    }
+
+    .btn-blue {
+      background: #2c3e50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .about {
+      display: flex;
+      padding: 40px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact {
+      padding: 40px;
+      background: white;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+    }
+    .icn {
+      background: orange;
+      margin: 30px;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+    }
+    .ic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hd {
+      justify-content: center;
+      align-items: flex-end;
+      gap:15px;
+      animation: fade 1s ease forwards;
+    }
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+    .lg {
+      display: inline;
+      font-size: 35px;
+    }
+    .logo {
+      color: orange;
+      display: flex;
+    }
+    .bt {
+      background: orange;
+      border: none;
+      box-shadow: 1px 1px 2px lightgray;
+      padding: 11px;
+      border-radius: 4px;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+    }
+    .nv {
+      transition: 0.3s;
+      display: inline-block;
+      padding:10px;
+    }
+    .nv:hover {
+      border-radius:8px;
+      background: orange;
       
-    </body>
-  </html>
+      
+    }
+    .nv i {
+      left:20px;
+      transition:0.3s;
+    }
+    .nv i:hover {
+      transform: rotate(360deg);
+    }
+    .nv a {
+      padding: 10px;
+      text-decoration: none;
+
+    }
+    .blog {
+  padding: 60px 40px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.blog h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.blog-intro {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #555;
+}
+
+.blog-cards {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.blog-card {
+  background: white;
+  width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.blog-card img {
+  width: 100%;
+  height: auto;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.blog-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.blog-btn {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+  background: orange;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  border:none;
+}
+.ict {
+  text-align:center;
+}
+@media (max-width:600px) {
+  .navbar {
+    display: block;
+    width:100%;
+    .nav-links a {
+      width:50px;
+    }
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    display: none;
+  }
+  .navbar .btn-nv {
+    display:block;
+  }
+  .logo {
+    display:flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width:87%;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .bt {
+    display: none;
+  }
+    .card {
+      background:none;
+      padding: 0px;
+    }
+    .card img {
+      height: 15vh;
+      display: grid;
+      width:500vh;
+      border-radius: 9px;
+    }
+
+  .features {
+    padding: 20px 10px;
+  }
+
+  .ftres {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .ftres > div {
+    flex: 1;
+    text-align: center;
+  }
+
+  .ic {
+    flex-direction: column;
+  }
+
+  .icn {
+    margin: 0 auto 8px;
+    height: 45px;
+    width: 45px;
+    font-size: 18px;
+  }
+
+  .ftres h3 {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+
+  .ftres p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+}
+    
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo"> 
+  <h2><b>⛰️Wonderlust</b>       travels</h2>
+      <button class="btn-nv">Plan Your Trip</button>
+  </div>
+  <nav class="nav-links">
+    <div class="nv"><i class="fas fa-home"></i><a href="javascript:void(0)" onclick="goTo('home')">home</a></div>
+    <div class="nv"><i class="fas fa-location-dot"></i><a href="javascript:void(0)" onclick="goTo('Destinations')">Destinations</a></div>
+    <div class="nv"><i class="fas fa-route"></i></i><a href="javascript:void(0)" onclick="goTo('tours')">tours</a></div>
+    <div class="nv"><i class="fas fa-info-circle"></i><a href="javascript:void(0)" onclick="goTo('about')">about</a></i></div>
+    <div class="nv"><i class="fas fa-blog"></i><a href="javascript:void(0)" onclick="goTo('blog')">Blog</a></div>
+    <div class="nv"><i class="fas fa-phone"></i><a href="javascript:void(0)" onclick="goTo('contact')">contact</a></div>
+
+  </nav>
+  
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hd">
+      <div style="font-size:60px; display:inline">Explore</div>
+      <div style="font-size:35px; display:inline"> the </div>
+      <div style="font-size:60px; display:inline">world with us</div>
+    </div>
+    <p>Discover Your Next Adventure Today!</p>
+
+    <div class="search-box">
+      <select><option>Destination</option></select>
+      <select><option>Tour Type</option></select>
+      <select><option>Duration</option></select>
+      <button class="btn-orange">Search Tours</button>
+    </div>
+  </div>
+</section>
+<section class="features">
+  <div class="ftres">
+  <div class="ict">
+    <div  class="ic">
+    <div class="icn">⭐</div>
+    <h3>Tailored Itineraries</h3>
+    </div>
+    <p>Custom trips crafted just for you.</p>
+   
+  </div>
+  <div class="ict">
+    <div class="ic">
+    <div class="icn">👥</div>    
+    <h3>Expert Guides</h3>
+    </div>
+    <p>Travel with local experts.</p>
+  </div>
+  <div class="ict">
+    <div class="ic">
+    <div class="icn">💲</div>
+    <h3>Best Price Guarantee</h3>
+    </div>
+    <p>Unbeatable prices & great deals.</p>
+  </div>
+  </div>
+</section>
+
+<section class="destinations" id="Destinations">
+  <h2>Popular Destinations</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://picsum.photos/300/200?1">
+      <h4>Santorini, Greece</h4>
+      <button class="bt">View More ></button>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?2">
+      <h4>Kyoto, Japan</h4>
+      <button class="bt">View More ></button>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?3">
+      <h4>Swiss Alps, Switzerland</h4>
+      <button class="bt">View More ></button>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?4">
+      <h4>Bali, Indonesia</h4>
+      <button class="bt">View More ></button>
+    </div>
+  </div>
+</section>
+
+
+<section class="tours" id="tours">
+  <h2>Featured Tours</h2>
+
+  <div>
+    <h4>Mystical Machu Picchu</h4>
+    <p>6 Days / from $1,299</p>
+  </div>
+
+  <div>
+    <h4>Safari Adventure in Kenya</h4>
+    <p>8 Days / from $1,850</p>
+  </div>
+
+  <div>
+    <h4>Golden Route of Italy</h4>
+    <p>7 Days / from $1,499</p>
+  </div>
+
+  <button class="btn-blue">View All Tours</button>
+</section>
+
+<section class="about" id="about">
+  <img src="https://picsum.photos/500/300?5">
+  <div>
+    <h2>About Us</h2>
+    <p>"An amazing experience!" – Sarah M.</p>
+    <p>"The best vacation ever!" – James R.</p>
+    <button class="btn-blue">Learn More</button>
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <h2>Latest from Our Blog</h2>
+  <p class="blog-intro">
+    Travel tips, guides, and inspiring stories to help you plan your next adventure.
+  </p>
+
+  <div class="blog-cards">
+
+    <div class="blog-card">
+      <img src="https://picsum.photos/350/220?travel1" alt="Blog image">
+      <div class="blog-content">
+        <h3>Top 5 Destinations to Visit in 2026</h3>
+        <p>
+          Discover the most beautiful and exciting places to explore this year,
+          from beaches to historic cities.
+        </p>
+        <button class="blog-btn">Read More</button>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="https://picsum.photos/350/220?travel2" alt="Blog image">
+      <div class="blog-content">
+        <h3>How to Travel on a Low Budget</h3>
+        <p>
+          Learn smart tips to save money while traveling without losing comfort
+          or fun.
+        </p>
+        <button class="blog-btn">Read More</button>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="https://picsum.photos/350/220?travel3" alt="Blog image">
+      <div class="blog-content">
+        <h3>Halal-Friendly Travel Destinations</h3>
+        <p>
+          A guide to Muslim-friendly destinations with halal food and prayer
+          facilities.
+        </p>
+        <button class="blog-btn">Read More</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Get in Touch</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name" id="regname" required>
+    <input type="email" placeholder="Email Address" id="regemail" required>
+    <textarea placeholder="Message" id="regmessage" required></textarea>
+    <button type="button" class="btn-orange" onclick="submitForm()">Send Message</button>
+  </form>
+
+  <div>
+    <p>📞 +234 XXXXXXXXXX</p>
+    <p>✉️ info@wanderlusttravels.com</p>
+  </div>
+</section>
+<footer>
+  <p>© Wanderlust Travels</p>
+</footer>
+<script>
+  function submitForm() {
+    let name = document.getElementById("regname").value;
+    let email = document.getElementById("regemail").value;
+    let message = document.getElementById("regmessage").value;
+    if(name === "" || email === "" || message === "") {
+      alert("pls fill it");
+      return;
+    }
+    localStorage.setItem("name",name);
+    localStorage.setItem("email",email);
+    localStorage.setItem("message",message);
+    
+    alert("your request is been proceed");
+    return;
+  }
+  function goTo(id) {
+    document.getElementById(id).scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+</script>
+</body>
+      </html>
