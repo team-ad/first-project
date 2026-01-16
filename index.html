@@ -377,8 +377,15 @@
   }
   
 }
+
+@media (max-width: 600px) {
+  #tours{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
     
   </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -397,9 +404,23 @@
     <div class="nv"><i class="fas fa-phone"></i><a href="javascript:void(0)" onclick="goTo('contact')">contact</a></div>
 
   </nav>
+
+  <section class="text-4xl hidden text-right" id="cancel">X</section>
+
+  <nav class="nav-link hidden">
+    <div class="m-3"><a href="#home" >home</a></div>
+    <div class="m-3"><a href="#Destinations">Destinations</a></div>
+    <div class="m-3"><a href="#tours">tours</a></div>
+    <div class="m-3"><a href="#about">about</a></div>
+    <div class="m-3"><a href="#Blog">Blog</a></div>
+    <div class="m-3"><a href="#contact">contact</a></div>
+
+  </nav>
+
+  
   
 </header>
-
+<section class="All">
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hd">
@@ -410,10 +431,15 @@
     <p>Discover Your Next Adventure Today!</p>
 
     <div class="search-box">
-      <select><option>Destination</option></select>
-      <select><option>Tour Type</option></select>
-      <select><option>Duration</option></select>
+      <!--<select><option class="text-gray-200">Destination</option></select>
+      <select><option class="text-gray-200">Tour Type</option>Ocean</select>
+      <select><option class="text-gray-200">Duration</option>Sea</select>-->
+
+      <button class="bg-green-500 rounded-md">Mountain</button>
+      <button class="bg-blue-100 rounded-md">Sea</button>
+      <button class="bg-blue-400 rounded-md">Snow</button>
       <button class="btn-orange">Search Tours</button>
+
     </div>
   </div>
 </section>
@@ -475,25 +501,25 @@
 </section>
 
 
-<section class="tours" id="tours">
-  <h2>Featured Tours</h2>
+<section class="tours grid">
+  <h2 class="text-3xl text-center mb-7">Featured Tours</h2>
 
-  <div>
+  <div class="grid text-center mb-3" id="tours">
     <h4>Mystical Machu Picchu</h4>
     <p>6 Days / from $1,299</p>
   </div>
 
-  <div>
+  <div class="grid text-center mb-3" id="tours">
     <h4>Safari Adventure in Kenya</h4>
     <p>8 Days / from $1,850</p>
   </div>
 
-  <div>
+  <div class="grid text-center mb-3" id="tours">
     <h4>Golden Route of Italy</h4>
     <p>7 Days / from $1,499</p>
   </div>
 
-  <button class="btn-blue">View All Tours</button>
+  <button class="btn-blue text-center mb-3 align-center rounded-md mt-5">View All Tours</button>
 </section>
 
 <section class="about" id="about">
@@ -557,16 +583,17 @@
   <h2>Get in Touch</h2>
 
   <form>
-    <input type="text" placeholder="Your Name" id="regname" required>
-    <input type="email" placeholder="Email Address" id="regemail" required>
-    <textarea placeholder="Message" id="regmessage" required></textarea>
-    <button type="button" class="btn-orange" onclick="submitForm()">Send Message</button>
+    <input type="text" class="border border-gray-100" placeholder="Your Name" id="regname" required>
+    <input type="email" class="border border-gray-100" placeholder="Email Address" id="regemail" required>
+    <textarea placeholder="Message" class="border border-gray-100" id="regmessage" required></textarea>
+    <button type="button" class="border border-gray-100" class="btn-orange" onclick="submitForm()">Send Message</button>
   </form>
 
   <div>
     <p>📞 +234 XXXXXXXXXX</p>
     <p>✉️ info@wanderlusttravels.com</p>
   </div>
+</section>
 </section>
 <footer>
   <p>© Wanderlust Travels</p>
@@ -592,6 +619,30 @@
       behavior: "smooth"
     });
   }
+
+  document.querySelector(".btn-nv").addEventListener('click', ()=> {
+    document.querySelector('.All').style.display = 'none'
+     
+    document.querySelector('.nav-link').style.display = 'block'
+    document.querySelector('.logo').style.display = 'none'
+    document.querySelector('#cancel').style.display = 'block'
+  })
+
+  document.querySelector('#cancel').addEventListener('click', ()=> {
+    document.querySelector('.nav-link').style.display = 'none'
+    
+    document.querySelector('#cancel').style.display = 'none'
+    document.querySelector('.All').style.display = 'block'
+    document.querySelector('.logo').style.display = 'block'
+  } )
+
+  document.querySelector('.nav-link').addEventListener('click', ()=> {
+    document.querySelector('.nav-link').style.display = 'none'
+    
+    document.querySelector('#cancel').style.display = 'none'
+    document.querySelector('.All').style.display = 'block'
+    document.querySelector('.logo').style.display = 'block'
+  })
 
 </script>
 </body>
